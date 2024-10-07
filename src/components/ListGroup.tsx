@@ -1,13 +1,10 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 function ListGroup() {
   let items = ["New York", "San Fransisco", "Los Angeles", "Tokyo"];
-  let selectedIndex = 0;
-  // ---Event handler--- //
-  // In typescript we should define a type annotation because we're assigning a brand new function with the parameter event
-  // Here we use type MouseEvent we imported from React
-  const handleClick = (event: MouseEvent) => {
-    console.log(event);
-  };
+  //   useState is a React Hook that lets you add a state variable to your component.
+  //   The current state. During the first render, it will match the initialState you have passed.
+  // The set function that lets you update the state to a different value and trigger a re-render.
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
@@ -23,7 +20,7 @@ function ListGroup() {
                 : "list-group-item"
             }
             key={item}
-            onClick={handleClick}
+            onClick={() => setSelectedIndex(index)}
           >
             {item}
           </li>
