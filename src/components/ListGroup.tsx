@@ -1,6 +1,10 @@
 import { MouseEvent, useState } from "react";
-function ListGroup() {
-  let items = ["New York", "San Fransisco", "Los Angeles", "Tokyo"];
+interface Props {
+  //  variable items has type of array string
+  items: string[];
+  heading: string;
+}
+function ListGroup({ items, heading }: Props) {
   //   useState is a React Hook that lets you add a state variable to your component.
   //   The current state. During the first render, it will match the initialState you have passed.
   // The set function that lets you update the state to a different value and trigger a re-render.
@@ -8,7 +12,7 @@ function ListGroup() {
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {/* Why do we use the && operator? because True && 1 will return 1, this is the common technique to render content dinamically */}
       {items.length === 0 && <p>No Item Found</p>}
       <ul className="list-group">
